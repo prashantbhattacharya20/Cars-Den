@@ -1,0 +1,54 @@
+﻿@model Cars
+
+<section class="section add-car">
+    <div class="container">
+        <h2 class="h2 section-title">Add New Car</h2>
+
+        <form method="post" class="add-new-form">
+            <div class="form-field">
+                <label for="model">Model</label>
+                <input asp-for="Model" type="text" id="model" required />
+            </div>
+
+            <div class="form-field">
+                <label for="makeYear">Make Year</label>
+                <input asp-for="MakeYear" type="number" id="makeYear" required />
+            </div>
+
+            <div class="form-field">
+                <label for="seaters">Seaters</label>
+                <input asp-for="Seaters" type="text" id="seaters" required />
+            </div>
+
+            <div class="form-field">
+                <label for="fuelType">Fuel Type</label>
+                <input asp-for="FuelType" type="text" id="fuelType" required />
+            </div>
+
+            <div class="form-field">
+                <label for="mileage">Mileage</label>
+                <input asp-for="Mileage" type="number" id="mileage" required />
+            </div>
+
+            <div class="form-field">
+                <label for="transmission">Transmission</label>
+                <input asp-for="Transmission" type="text" id="transmission" required />
+            </div>
+
+            <div class="form-field">
+                <label for="rentPerDay">Rent Per Day</label>
+                <input asp-for="RentPerDay" type="number" id="rentPerDay" required />
+            </div>
+
+            <div class="form-field">
+                <label for="imageUrl">Image URL</label>
+                <input asp-for="ImageUrl" type="text" id="imageUrl" required />
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="add-new-car-btn btn">Submit</button>
+                <a href="/Admin/Admin" class="go-back-button btn">Back</a>
+            </div>
+        </form>
+    </div>
+</section>

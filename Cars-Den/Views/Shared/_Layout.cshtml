@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car's Den</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Cars_Den.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" asp-append-version="true">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin asp-append-version="true">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+          rel="stylesheet" asp-append-version="true">
+</head>
+<body>
+    <header class="header" data-header>
+        <div class="container">
+
+            <div class="overlay" data-overlay></div>
+
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                <img src="/images/logo.png" alt="Car's Den's Logo">
+            </a>
+
+            <nav class="navbar" data-navbar>
+                <ul class="navbar-list">
+
+                    <li>
+                        <a asp-controller="Home" asp-action="Index" class="navbar-link" data-nav-link>Home</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="About" asp-action="About" class="navbar-link" data-nav-link>About us</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Featured" asp-action="Featured" class="navbar-link" data-nav-link>Explore cars</a>
+                    </li>
+
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("username")) && Context.Session.GetString("username") == "Admin")
+                    {
+                        <li>
+                            <a asp-controller="Admin" asp-action="Admin" class="navbar-link" data-nav-link>Admin</a>
+                        </li>
+                    }
+
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+
+                <div class="header-contact">
+                    <a href="tel:18002783737" class="contact-link">1800 278 37 37</a>
+
+                    <span class="contact-time">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                </div>
+
+                <a asp-controller="Book" asp-action="Book" class="btn" aria-labelledby="aria-label-txt">
+                    <ion-icon name="car-outline"></ion-icon>
+
+                    <span id="aria-label-txt">Book a Ride</span>
+                </a>
+
+                @if (string.IsNullOrEmpty(Context.Session.GetString("username")))
+                {
+                    <a asp-controller="Login" asp-action="Login" class="btn user-btn" aria-label="Profile">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Login" asp-action="Logout" class="btn user-btn" aria-label="Profile">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </a>
+                }
+
+                <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <a asp-controller="Home" asp-action="Index" class="logo">
+                        <img src="/images/logo.png" alt="Car's Den's Logo">
+                    </a>
+
+                    <p class="footer-text">
+                        Explore India affordably with Car's Den! With 100+ vehicles to choose from, find your perfect ride and hit the road. Book now for unbeatable deals!
+                    </p>
+                </div>
+
+                <ul class="footer-list">
+
+                    <li>
+                        <p class="footer-list-title">Company</p>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Home" asp-action="Index" class="footer-link">Home</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="About" asp-action="About" class="footer-link">About us</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Featured" asp-action="Featured" class="footer-link">Explore Cars</a>
+                    </li>
+
+                </ul>
+
+                <ul class="footer-list">
+
+                    <li>
+                        <p class="footer-list-title">Support</p>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Help center</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Ask a question</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Privacy policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Terms & conditions</a>
+                    </li>
+
+                </ul>
+
+                <ul class="footer-list">
+
+                    <li>
+                        <p class="footer-list-title">Service Locations all over India</p>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Bangalore</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Mumbai</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Gurugram</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Kolkata</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Chennai</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Hyderabad</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Ahmedabad</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Kochi</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <ul class="social-list">
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-skype"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <p class="copyright">
+                    &copy; 2022 <a href="#">Car's Den</a>. All Rights Reserved
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" asp-append-version="true"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@model List<Cars>
+
+<section class="section admin">
+    <div class="container">
+        <h2 class="h2 section-title">Manage Cars</h2>
+        <div class="add-new">
+            <a asp-controller="Admin" asp-action="AddNewCar" class="add-button">Add New Car</a>
+        </div>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Make Year</th>
+                    <th>Seaters</th>
+                    <th>Fuel Type</th>
+                    <th>Mileage</th>
+                    <th>Transmission</th>
+                    <th>Rent Per Day</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model.OrderBy(c => c.CarID))
+                {
+                    <tr class="admin-item">
+                        <td>@car.Model</td>
+                        <td>@car.MakeYear</td>
+                        <td>@car.Seaters</td>
+                        <td>@car.FuelType</td>
+                        <td>@car.Mileage</td>
+                        <td>@car.Transmission</td>
+                        <td>@car.RentPerDay</td>
+                        <td> <a asp-controller="Admin" asp-action="EditCar" asp-route-id="@car.CarID" class="edit-button btn">Edit</a></td>
+                        <td> <a asp-controller="Admin" asp-action="DeleteCar" asp-route-id="@car.CarID" class="delete-button btn">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

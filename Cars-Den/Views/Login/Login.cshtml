@@ -1,0 +1,25 @@
+﻿@model Users
+@{
+    if(TempData["Error"] != null)
+    {
+        <script>
+            alert('@TempData["Error"]');
+        </script>
+    }
+}
+
+<section class="section login">
+    <div class="container">
+        <h2 class="h2 section-title">Login to our Community</h2>
+        <div class="login-content">
+            <form method="post" onsubmit="return validateForm()" class="login-form">
+                <label for="username">Username:</label>
+                <input asp-for="Username" type="username" id="username" required>
+                <label for="password">Password:</label>
+                <input asp-for="Password" type="password" id="password" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p>Don't have an account? <a asp-controller="Signup" asp-action="Signup">Sign up</a></p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+﻿@model Bookings
+
+@{
+    if (TempData["Error"] != null)
+    {
+        <script>
+            alert('@TempData["Error"]');
+        </script>
+    }
+}
+
+<section class="section book-ride">
+    <div class="container">
+        <h2 class="h2 section-title">Book a Ride</h2>
+        <form method="post" class="book-ride-form" asp-action="BookARide">
+            <div class="input-wrapper">
+                <label for="car-model" class="input-label">Car Model</label>
+                <select asp-for="CarID" name="car-model" id="car-model" class="input-field" onchange="calculateTotalPrice()">
+                    <option disabled selected>Select a car model</option>
+                    @foreach (var car in ViewBag.Cars)
+                    {
+                        <option value="@car.CarID">@car.Model</option>
+                    }
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <label for="start-date" class="input-label">Start Date</label>
+                <input asp-for="StartDate" type="date" name="start-date" id="start-date" class="input-field" onchange="calculateTotalPrice()">
+            </div>
+            <div class="input-wrapper">
+                <label for="end-date" class="input-label">End Date</label>
+                <input asp-for="EndDate" type="date" name="end-date" id="end-date" class="input-field" onchange="calculateTotalPrice()">
+            </div>
+            <div class="input-wrapper">
+                <label for="total-price" class="input-label">Total Price</label>
+                <input asp-for="TotalPrice" type="text" name="total-price" id="total-price" class="input-field" readonly>
+            </div>
+            <button type="submit" class="btn book-ride-btn">Book a Ride</button>
+        </form>
+    </div>
+</section>
+
+<section id="car-card-section" class="section car-card-section" style="display: none;">
+</section>

@@ -1,0 +1,58 @@
+﻿@model Cars
+
+<section class="section delete-car">
+    <div class="container">
+        <h2 class="h2 section-title">Delete Car</h2>
+
+        <form method="post" class="delete-car-form">
+            <p>Are you sure you want to delete this car?</p>
+
+            <input asp-for="CarID" type="hidden" />
+
+            <div class="form-field">
+                <label for="model">Model</label>
+                <input asp-for="Model" type="text" id="model" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="makeYear">Make Year</label>
+                <input asp-for="MakeYear" type="number" id="makeYear" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="seaters">Seaters</label>
+                <input asp-for="Seaters" type="text" id="seaters" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="fuelType">Fuel Type</label>
+                <input asp-for="FuelType" type="text" id="fuelType" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="mileage">Mileage</label>
+                <input asp-for="Mileage" type="number" id="mileage" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="transmission">Transmission</label>
+                <input asp-for="Transmission" type="text" id="transmission" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="rentPerDay">Rent Per Day</label>
+                <input asp-for="RentPerDay" type="number" id="rentPerDay" disabled />
+            </div>
+
+            <div class="form-field">
+                <label for="imageUrl">Image URL</label>
+                <input asp-for="ImageUrl" type="text" id="imageUrl" disabled />
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="delete-car-btn btn">Delete</button>
+                <a href="/Admin/Admin" class="go-back-button btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>

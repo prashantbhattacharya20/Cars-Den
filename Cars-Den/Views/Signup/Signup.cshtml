@@ -1,0 +1,57 @@
+﻿@model Users
+@{
+    if(TempData["success"] != null)
+    {
+        <script>
+            alert('@TempData["success"]');
+        </script>
+    }
+}
+
+<section class="section signup">
+    <div class="container">
+        <h2 class="h2 section-title">Sign Up for Our Community</h2>
+        <div class="signup-content">
+            <form method="post" class="signup-form">
+                <div class="input-row">
+                    <div class="input-field">
+                        <label for="name">Name:</label>
+                        <input asp-for="Name" type="text" id="name" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Email:</label>
+                        <input asp-for="Email" type="email" id="email" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-field">
+                        <label for="password">Password:</label>
+                        <input asp-for="Password" type="password" id="password" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="phone">Phone:</label>
+                        <input asp-for="PhoneNumber" type="tel" id="phone" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-field">
+                        <label for="username">Username:</label>
+                        <input asp-for="Username" type="text" id="username" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="dob">Date of Birth:</label>
+                        <input asp-for="DateOfBirth" type="date" id="dob" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-field full-width">
+                        <label for="address">Address:</label>
+                        <textarea asp-for="Address" id="address" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a asp-controller="Login" asp-action="Login">Login</a></p>
+        </div>
+    </div>
+</section>
