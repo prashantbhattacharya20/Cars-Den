@@ -477,6 +477,7 @@ button, a {
 
 .hero {
     padding-top: 120px;
+    padding-bottom: 0px;
 }
 
 .hero-title {
@@ -1434,17 +1435,24 @@ button, a {
 
     .hero-banner {
         display: block;
-        background: url("/images/hero.jpg") no-repeat;
-        background-size: contain;
-        background-position: left;
         position: absolute;
-        top: 100px;
+        top: 200px;
         bottom: 50px;
         left: 65%;
         width: 500px;
         border-radius: 30px;
+        padding-left: 150px;
         z-index: -1;
     }
+
+        .hero-banner img {
+            display: block;
+            width: 500px;
+            height: 280px;
+            border-radius: 30px;
+            object-fit: contain;
+            object-position: left;
+        }
 
 
 
