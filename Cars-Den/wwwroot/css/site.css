@@ -1277,6 +1277,52 @@ button, a {
 }
 
 /*-----------------------------------*\
+  #ENQUIRY
+\*-----------------------------------*/
+
+
+.enquiry-form {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--alice-blue-2);
+    border-radius: var(--radius-10);
+    box-shadow: var(--shadow-1);
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-field {
+    flex: 1;
+    margin-right: 0.5rem;
+}
+
+    .form-field:last-child {
+        margin-right: 0;
+    }
+
+.form-label {
+    font-size: var(--fs-6);
+    color: var(--manatee);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: var(--radius-10);
+    border: 1px solid var(--manatee);
+    font-size: var(--fs-6);
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+/*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
 
